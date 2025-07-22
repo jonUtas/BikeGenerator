@@ -1,2 +1,4 @@
-	
-TPSM560R6HRDAR 60v - 5v  https://www.digikey.com.au/en/products/detail/texas-instruments/TPSM5601R5HRDAR/14004317
+Pedal generator for open day. 
+
+Based on Bafang bike motor. 
+
