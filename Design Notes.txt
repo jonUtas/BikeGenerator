@@ -1,4 +1,12 @@
-	
+
+todo merge with rick notes
+
+
+Electronincs:
 TPSM560R6HRDAR 60v - 5v  https://www.digikey.com.au/en/products/detail/texas-instruments/TPSM5601R5HRDAR/14004317
 
-overvoltage shunt
+MCU:
+Devboard is STM32746G-Disco on the MB1191C board version C01 (white sticker on back)
+appropriate schematic in project datasheets folder.
+
+Firmware:
