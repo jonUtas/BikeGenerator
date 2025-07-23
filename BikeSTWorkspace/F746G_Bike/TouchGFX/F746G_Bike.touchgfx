@@ -3,136 +3,44 @@
     "Screens": [
       {
         "Name": "Screen1",
-        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Image",
-            "Name": "background",
+            "Name": "image1",
             "Width": 480,
             "Height": 272,
-            "RelativeFilename": "background.png"
+            "RelativeFilename": "cable small.png"
           },
           {
-            "Type": "FlexButton",
-            "Name": "nextButton",
-            "X": 419,
-            "Y": 211,
-            "Width": 46,
-            "Height": 46,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "ImageButtonStyle",
-                "LockFlexButtonToImageSize": true,
-                "ImageReleased": "next_button_released.png",
-                "ImagePressed": "next_button_pressed.png"
-              }
-            ]
+            "Type": "ToggleButton",
+            "Name": "toggleButton1",
+            "X": 370,
+            "Y": 222,
+            "Width": 110,
+            "Height": 50,
+            "Pressed": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.png",
+            "Released": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.png",
+            "Preset": "alternate_theme\\presets\\togglebutton\\medium\\rounded.json"
           },
           {
             "Type": "Gauge",
             "Name": "gauge1",
-            "X": 102,
-            "Y": 22,
-            "Width": 276,
-            "Height": 228,
-            "FileNameBackground": "gauge01_background.png",
-            "RotationCenterX": 138.0,
-            "RotationCenterY": 138.0,
-            "StartAngle": -130.0,
-            "EndAngle": 130.0,
-            "RangeMin": 10.0,
-            "RangeMax": 140.0,
-            "InitialValue": 10.0,
+            "Y": 37,
+            "Width": 240,
+            "Height": 165,
+            "Preset": "alternate_theme\\presets\\gauges\\medium\\active.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_active.png",
+            "RotationCenterX": 120.0,
+            "RotationCenterY": 120.0,
+            "StartAngle": -113.0,
+            "EndAngle": 112.0,
+            "RangeMax": 100.0,
+            "InitialValue": 50.0,
             "Easing": "Linear",
             "EasingOption": "In",
-            "FileNameNeedle": "gauge01_needle.png",
-            "NeedleRotationCenterX": 11.0,
-            "NeedleRotationCenterY": 117.0,
-            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
-            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
-            "UseArc": true,
-            "FileNameArc": "gauge01_dot_overlay_small.png",
-            "ArcColor": {
-              "Red": 20,
-              "Green": 151,
-              "Blue": 197
-            },
-            "SetArcPosition": true,
-            "ArcX": 48.0,
-            "ArcY": 47.0,
-            "ArcWidth": 182.0,
-            "ArcHeight": 146.0,
-            "ArcRadius": 85.0,
-            "ArcLineWidth": 9.0,
-            "ArcCapStyle": "Butt"
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "ChangeScreen",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "nextButton"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen2"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "Screen2",
-        "Components": [
-          {
-            "Type": "Image",
-            "Name": "background",
-            "Width": 480,
-            "Height": 272,
-            "RelativeFilename": "background.png"
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "nextButton",
-            "X": 419,
-            "Y": 211,
-            "Width": 45,
-            "Height": 45,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "ImageButtonStyle",
-                "LockFlexButtonToImageSize": true,
-                "ImageReleased": "next_button_released.png",
-                "ImagePressed": "next_button_pressed.png"
-              }
-            ]
-          },
-          {
-            "Type": "Gauge",
-            "Name": "gauge1",
-            "X": 130,
-            "Y": 26,
-            "Width": 220,
-            "Height": 220,
-            "FileNameBackground": "gauge02_background.png",
-            "RotationCenterX": 110.0,
-            "RotationCenterY": 110.0,
-            "StartAngle": -130.0,
-            "EndAngle": 130.0,
-            "RangeMax": 100.0,
-            "UseAnimation": true,
-            "Easing": "Cubic",
-            "EasingOption": "InOut",
-            "FileNameNeedle": "gauge02_needle.png",
-            "NeedleRotationCenterX": 13.0,
-            "NeedleRotationCenterY": 50.0,
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_smooth.png",
+            "NeedleRotationCenterX": 7.0,
+            "NeedleRotationCenterY": 67.0,
             "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
             "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
             "ArcColor": {
@@ -141,142 +49,18 @@
               "Blue": 197
             },
             "ArcCapStyle": "Butt"
-          },
-          {
-            "Type": "Image",
-            "Name": "icon",
-            "X": 219,
-            "Y": 198,
-            "Width": 42,
-            "Height": 26,
-            "RelativeFilename": "gauge02_icon_level00.png"
-          },
-          {
-            "Type": "TextArea",
-            "Name": "readoutText",
-            "X": 210,
-            "Y": 159,
-            "Width": 60,
-            "Height": 39,
-            "TextId": "__SingleUse_LEVJ",
-            "TextRotation": "0",
-            "Color": {
-              "Red": 33,
-              "Green": 36,
-              "Blue": 50
-            },
-            "Wildcard1": {
-              "TextId": "__SingleUse_B0MF",
-              "UseBuffer": true,
-              "BufferSize": 10
-            }
           }
         ],
         "Interactions": [
           {
-            "InteractionName": "ChangeScreen",
+            "InteractionName": "Interaction1",
             "Trigger": {
               "Type": "TriggerClicked",
-              "TriggerComponent": "nextButton"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen3"
-            }
-          },
-          {
-            "InteractionName": "NewGaugeValue",
-            "Trigger": {
-              "Type": "TriggerGaugeValueSet",
-              "TriggerComponent": "gauge1"
+              "TriggerComponent": "toggleButton1"
             },
             "Action": {
               "Type": "ActionCustom",
-              "FunctionName": "newGaugeValue"
-            }
-          }
-        ]
-      },
-      {
-        "Name": "Screen3",
-        "CanvasBufferSize": 7200,
-        "Components": [
-          {
-            "Type": "Image",
-            "Name": "background",
-            "Width": 480,
-            "Height": 272,
-            "RelativeFilename": "background.png"
-          },
-          {
-            "Type": "FlexButton",
-            "Name": "nextButton",
-            "X": 419,
-            "Y": 211,
-            "Width": 46,
-            "Height": 46,
-            "ButtonTrigger": {
-              "Type": "ClickButtonTrigger"
-            },
-            "ButtonStyles": [
-              {
-                "Type": "ImageButtonStyle",
-                "LockFlexButtonToImageSize": true,
-                "ImageReleased": "next_button_released.png",
-                "ImagePressed": "next_button_pressed.png"
-              }
-            ]
-          },
-          {
-            "Type": "Gauge",
-            "Name": "gauge1",
-            "X": 80,
-            "Y": 30,
-            "Width": 320,
-            "Height": 180,
-            "FileNameBackground": "gauge03_background.png",
-            "BackgroundOffsetX": 35.0,
-            "BackgroundOffsetY": 39.0,
-            "RotationCenterX": 158.0,
-            "RotationCenterY": 172.0,
-            "StartAngle": -68.0,
-            "EndAngle": 68.0,
-            "RangeMax": 100.0,
-            "Easing": "Cubic",
-            "EasingOption": "Out",
-            "FileNameNeedle": "gauge03_needle.png",
-            "NeedleRotationCenterX": 6.0,
-            "NeedleRotationCenterY": 169.0,
-            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
-            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
-            "UseArc": true,
-            "FileNameArc": "gauge03_fill.png",
-            "ArcColor": {
-              "Red": 20,
-              "Green": 151,
-              "Blue": 197
-            },
-            "SetArcPosition": true,
-            "ArcX": 35.0,
-            "ArcY": 39.0,
-            "ArcWidth": 250.0,
-            "ArcHeight": 111.0,
-            "ArcRadius": 141.0,
-            "ArcCapStyle": "Butt"
-          }
-        ],
-        "Interactions": [
-          {
-            "InteractionName": "ChangeScreen",
-            "Trigger": {
-              "Type": "TriggerClicked",
-              "TriggerComponent": "nextButton"
-            },
-            "Action": {
-              "Type": "ActionGotoScreen",
-              "ScreenTransitionType": "ScreenTransitionNone",
-              "ActionComponent": "Screen1"
+              "FunctionName": "function1"
             }
           }
         ]
@@ -333,7 +117,7 @@
     "SubFamily": "STM32F7x6",
     "Toolchain": "STM32CubeIDE",
     "Platform": "m7",
-    "ProjectFile": "../STM32F746G_DISCO.ioc",
+    "ProjectFile": "../F746G_Bike.ioc",
     "OptionalComponentsRoot": "../Middlewares/ST/touchgfx_components",
     "OptionalComponents": [],
     "AdditionalFeatures": [
