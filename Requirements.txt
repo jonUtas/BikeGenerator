@@ -1,0 +1,11 @@
+- Temperature monitoring on the heat sink
+- RPM from 3 x hall sensors
+- Analog input from potentiometer for load control
+- PWM or DAC output for load transistor control
+- Analog inputs for power monitoring (volts, amps)
+
+
+- 3 phase rectifier
+- Over voltage protection
+- Super cap on micro supply line
+- 12 v usb car charger
