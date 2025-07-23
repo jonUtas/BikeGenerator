@@ -17,4 +17,12 @@ Leave the one in the readme.md "Supports flashing of the STM32F746G_Disco board"
 
 In file explorer search for files of "Demoboard name" in sub folders of {workspace}\MyProject  replace "Demoboard name" with these to "MyProject"
 
-Open .project file this should import project into STMCube
+Open .project file this should import project into STMCube wait for successful import message 30 seconds
+
+Build
+Debug
+
+Commit
+
+Then check Touch can be modified build debug.
+and ioc can be modified build debug.

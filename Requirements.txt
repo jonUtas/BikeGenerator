@@ -1,11 +1,19 @@
-- Temperature monitoring on the heat sink
-- RPM from 3 x hall sensors
-- Analog input from potentiometer for load control
-- PWM or DAC output for load transistor control
-- Analog inputs for power monitoring (volts, amps)
+From Anna 
+Pedal generator for open day ~ $2000
+
+Design Spec
+Use bafang PMSM as PMSG after removal of clutch. 
 
 
-- 3 phase rectifier
-- Over voltage protection
-- Super cap on micro supply line
-- 12 v usb car charger
+- 3 phase rectifier to Appropriate Load
+- Over voltage protection if required.
+- Super cap on micro supply line, screen shutdown to minimise boot time
+- off the shelf, 12v usb charger, probably automotive origin
+- dissipate power on chassis if possible. 
+
+potentiometer to control load resistance
+Display with  volts, amps, temp, rpm
+possibly as dials
+possibly graph of power vs time
+possibly energy calc to allow for reward
+
