@@ -1,0 +1,20 @@
+How To Make Project with Git, Demoboard, TouchGFX, STMCube and your own project name
+
+Setup project in git. 
+
+make workspace folder under project folder. 
+
+Create project in touchgfx using demo board eg. "STM32F746G_Disco", desired project name eg."MyProject" and select workspace folder as directory.
+Add content 
+generate code
+save 
+
+
+In file explorer goto MyProject folder, delete EWarm and MDK-ARM folders (used for other compilers)
+
+Use Notepad++ find in files to replace almost all instances of "STM32F746G_Disco" with "MyProject". 
+Leave the one in the readme.md "Supports flashing of the STM32F746G_Disco board" as it wont make any sense.
+
+In file explorer search for files of "Demoboard name" in sub folders of {workspace}\MyProject  replace "Demoboard name" with these to "MyProject"
+
+Open .project file this should import project into STMCube
