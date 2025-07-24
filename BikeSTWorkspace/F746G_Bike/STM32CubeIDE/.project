@@ -54,16 +54,6 @@
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal.c</locationURI>
 		</link>
 		<link>
-			<name>Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_adc.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc.c</locationURI>
-		</link>
-		<link>
-			<name>Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_adc_ex.c</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_adc_ex.c</locationURI>
-		</link>
-		<link>
 			<name>Drivers/STM32F7xx_HAL_Driver/stm32f7xx_hal_cortex.c</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/Drivers/STM32F7xx_HAL_Driver/Src/stm32f7xx_hal_cortex.c</locationURI>
@@ -684,29 +674,19 @@
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/SVGDatabase.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.cpp</name>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_normal.cpp</locationURI>
 		</link>
 		<link>
-			<name>Application/User/generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.cpp</name>
+			<name>Application/User/generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.cpp</name>
 			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.cpp</locationURI>
+			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/__generated/image_alternate_theme_images_widgets_button_regular_height_50_medium_rounded_pressed.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/image_cable_small.cpp</name>
 			<type>1</type>
 			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_cable_small.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_gauge_background.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_gauge_background.cpp</locationURI>
-		</link>
-		<link>
-			<name>Application/User/generated/image_needle.cpp</name>
-			<type>1</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TouchGFX/generated/images/src/image_needle.cpp</locationURI>
 		</link>
 		<link>
 			<name>Application/User/generated/LanguageGb.cpp</name>
