@@ -18,7 +18,7 @@ STM32F746G_Disco     F746G_Bike   //for cutting and pasting only
 
 In file explorer goto MyProject folder, delete EWarm and MDK-ARM folders (used for other compilers)
 
-Use Notepad++ find in files to replace almost all instances of "STM32F746G_Disco" with "MyProject". from the project folder, not the workspace folder 
+Use Notepad++ find in files to replace almost all instances of "STM32F746G_Disco" with "MyProject". from the project folder, not the workspace folder e.g. C:\Code\ProjectsGit\BikeGenerator\BikeSTWorkspace\F746G_Bike 
 Leave the one in the readme.md "Supports flashing of the STM32F746G_Disco board" as it wont make any sense.
 
 In file explorer search for files of "Demoboard name" in sub folders of {workspace}\MyProject  replace "Demoboard name" with these to "MyProject"
