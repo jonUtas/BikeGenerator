@@ -11,7 +11,7 @@ Wiring:
 		PI0	D5		GPIO	Input		Phase B
 		PH6	D6		GPIO	Input		Phase C
 
-- 3 x Digital IO
+- 3 x Digital Output
 		PA15	D9		TIM2	CH1		PWM  for load transistor control
 		PA8		D10		GPIO	Output		LED on/off switch
 		PB15	D11		GPIO	Output		LED serial WS2812
@@ -46,3 +46,7 @@ Devboard is STM32746G-Disco on the MB1191C board version C01 (white sticker on b
 appropriate schematic in project datasheets folder.
 
 Firmware:
+
+
+
+disable backlight on PK3 pin. 
