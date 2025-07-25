@@ -898,10 +898,20 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
+	GPIO_PinState backLightState = GPIO_PIN_SET;
   /* Infinite loop */
   for(;;)
   {
-    osDelay(100);
+    osDelay(10000);
+    HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
+    if(backLightState == GPIO_PIN_SET)
+    {
+    	backLightState = GPIO_PIN_RESET;
+    }
+    else
+    {
+    	backLightState = GPIO_PIN_SET;
+    }
   }
   /* USER CODE END 5 */
 }

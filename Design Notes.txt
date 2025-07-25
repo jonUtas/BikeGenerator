@@ -20,10 +20,10 @@ Wiring:
 - 5 x Analog inputs for volts, amps, temp, potentiometer, Super cap voltage  
 		
 		PA0		A0		ADC3	IN0		Rectifier volts
-		PF10	A1		ADC3	IN8		amps
-		PF9		A2		ADC3	IN7		temp
-		PF8		A3		ADC3	IN6		potentiometer
-		PF7		A4		ADC3	IN5		Super Cap voltage 
+		PF10	A1		ADC3	IN8		Rectifier Amps
+		PF9		A2		ADC3	IN7		Temperature
+		PF8		A3		ADC3	IN6		Potentiometer
+		PF7		A4		ADC3	IN5		SuperCap Volts 
 		
 
 - 3 phase rectifier
