@@ -108,15 +108,15 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     PF8     ------> ADC3_IN6
     PA0/WKUP     ------> ADC3_IN0
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_7|GPIO_PIN_10|GPIO_PIN_9|GPIO_PIN_8;
+    GPIO_InitStruct.Pin = SuperCapVolts_Pin|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = GPIO_PIN_0;
+    GPIO_InitStruct.Pin = RectifierVolts_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(RectifierVolts_GPIO_Port, &GPIO_InitStruct);
 
     /* USER CODE BEGIN ADC3_MspInit 1 */
 
@@ -149,9 +149,9 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     PF8     ------> ADC3_IN6
     PA0/WKUP     ------> ADC3_IN0
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_7|GPIO_PIN_10|GPIO_PIN_9|GPIO_PIN_8);
+    HAL_GPIO_DeInit(GPIOF, SuperCapVolts_Pin|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin);
 
-    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0);
+    HAL_GPIO_DeInit(RectifierVolts_GPIO_Port, RectifierVolts_Pin);
 
     /* USER CODE BEGIN ADC3_MspDeInit 1 */
 
@@ -658,12 +658,12 @@ void HAL_TIM_MspPostInit(TIM_HandleTypeDef* htim)
     /**TIM2 GPIO Configuration
     PA15     ------> TIM2_CH1
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_15;
+    GPIO_InitStruct.Pin = PWM_BJT_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_AF_PP;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
     GPIO_InitStruct.Alternate = GPIO_AF1_TIM2;
-    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
+    HAL_GPIO_Init(PWM_BJT_GPIO_Port, &GPIO_InitStruct);
 
     /* USER CODE BEGIN TIM2_MspPostInit 1 */
 
