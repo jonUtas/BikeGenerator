@@ -51,7 +51,7 @@ Firmware:
 
 disable backlight on PK3 pin. 
 tried disabling FMC but no screen afterward
-could also try disabling quadspi
+tried disabling quadspi but loses images
 could also try disabling i2c3
 
 4ma draw on red LED
