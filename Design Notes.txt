@@ -50,3 +50,9 @@ Firmware:
 
 
 disable backlight on PK3 pin. 
+tried disabling FMC but no screen afterward
+could also try disabling quadspi
+could also try disabling i2c3
+
+4ma draw on red LED
+power in via right angle header male 2 way then change jumper one position. 
