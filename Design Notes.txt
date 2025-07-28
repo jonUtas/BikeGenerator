@@ -56,3 +56,9 @@ could also try disabling i2c3
 
 4ma draw on red LED
 power in via right angle header male 2 way then change jumper one position. 
+possiby 3 x 5.5v 1F super caps charged to 13volts would give 10 seconds uptime
+4688-CHP5R5L105R-TW-ND need three in series with balancing resistors, 0.1 leakage recommended
+or 2085-SCAP,PBLS-1.25/21.6-ND
+
+via 
+recom R-785.0-1.0 945-1038-ND
