@@ -6,10 +6,10 @@
  */
 
 
-#include "BikeADC.h"
 #include "main.h"
 #include <cmsis_os2.h>
 #include <stdbool.h>
+#include "BikeADC.h"
 
 
 #define CHANNEL_COUNT 5
@@ -67,23 +67,23 @@ void Run_BikeADC_Task()
 	/* Infinite loop */
 	for(;;)
 	{
-		HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
-		if(backLightState == GPIO_PIN_SET)
-		{
-			backLightState = GPIO_PIN_RESET;
-		}
-		else
-		{
-			backLightState = GPIO_PIN_SET;
-		}
+//		HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
+//		if(backLightState == GPIO_PIN_SET)
+//		{
+//			backLightState = GPIO_PIN_RESET;
+//		}
+//		else
+//		{
+//			backLightState = GPIO_PIN_SET;
+//		}
 		if(newData)
 		{
 			newData = false;
-			rectifierVoltsMapped = ADCMap(rectifierVoltsRaw, 1700, 65535, 0, 100);// todo use float? check map. low pass filter?
-			Rectifier_AmpsMapped = ADCMap(Rectifier_AmpsRaw, 1700, 65535, 0, 100);
-			TemperatureMapped = ADCMap(TemperatureRaw, 1700, 65535, 0, 100);
-			PotentiometerMapped = ADCMap(PotentiometerRaw, 1700, 65535, 0, 100);
-			SuperCap_VoltsMapped  = ADCMap(SuperCap_VoltsRaw, 1700, 65535, 0, 100);
+//			rectifierVoltsMapped = ADCMap(rectifierVoltsRaw, 1700, 65535, 0, 100);// todo use float? check map. low pass filter?
+//			Rectifier_AmpsMapped = ADCMap(Rectifier_AmpsRaw, 1700, 65535, 0, 100);
+//			TemperatureMapped = ADCMap(TemperatureRaw, 1700, 65535, 0, 100);
+//			PotentiometerMapped = ADCMap(PotentiometerRaw, 1700, 65535, 0, 100);
+//			SuperCap_VoltsMapped  = ADCMap(SuperCap_VoltsRaw, 1700, 65535, 0, 100);
 		}
 		osDelay(1);
 	}
