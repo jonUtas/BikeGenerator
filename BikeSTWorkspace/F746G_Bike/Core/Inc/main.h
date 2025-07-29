@@ -50,6 +50,8 @@ extern "C" {
 
 /* USER CODE END EM */
 
+void HAL_TIM_MspPostInit(TIM_HandleTypeDef *htim);
+
 /* Exported functions prototypes ---------------------------------------------*/
 void Error_Handler(void);
 
@@ -60,16 +62,38 @@ void Error_Handler(void);
 /* Private defines -----------------------------------------------------------*/
 #define VSYNC_FREQ_Pin GPIO_PIN_4
 #define VSYNC_FREQ_GPIO_Port GPIOB
+#define PWM_BJT_Pin GPIO_PIN_15
+#define PWM_BJT_GPIO_Port GPIOA
 #define LCD_BL_CTRL_Pin GPIO_PIN_3
 #define LCD_BL_CTRL_GPIO_Port GPIOK
 #define LCD_DISP_Pin GPIO_PIN_12
 #define LCD_DISP_GPIO_Port GPIOI
+#define PhaseB_Pin GPIO_PIN_0
+#define PhaseB_GPIO_Port GPIOI
+#define LED_Power_Pin GPIO_PIN_8
+#define LED_Power_GPIO_Port GPIOA
 #define FRAME_RATE_Pin GPIO_PIN_7
 #define FRAME_RATE_GPIO_Port GPIOC
 #define RENDER_TIME_Pin GPIO_PIN_6
 #define RENDER_TIME_GPIO_Port GPIOC
+#define PhaseA_Pin GPIO_PIN_7
+#define PhaseA_GPIO_Port GPIOG
 #define MCU_ACTIVE_Pin GPIO_PIN_6
 #define MCU_ACTIVE_GPIO_Port GPIOG
+#define SuperCapVolts_Pin GPIO_PIN_7
+#define SuperCapVolts_GPIO_Port GPIOF
+#define RectifierAmps_Pin GPIO_PIN_10
+#define RectifierAmps_GPIO_Port GPIOF
+#define Temperature_Pin GPIO_PIN_9
+#define Temperature_GPIO_Port GPIOF
+#define Potentiometer_Pin GPIO_PIN_8
+#define Potentiometer_GPIO_Port GPIOF
+#define RectifierVolts_Pin GPIO_PIN_0
+#define RectifierVolts_GPIO_Port GPIOA
+#define PhaseC_Pin GPIO_PIN_6
+#define PhaseC_GPIO_Port GPIOH
+#define LED_Serial_Pin GPIO_PIN_15
+#define LED_Serial_GPIO_Port GPIOB
 
 /* USER CODE BEGIN Private defines */
 
