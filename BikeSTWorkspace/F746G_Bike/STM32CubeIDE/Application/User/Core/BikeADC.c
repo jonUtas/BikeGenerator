@@ -11,6 +11,9 @@
 #include <cmsis_os2.h>
 #include <stdbool.h>
 
+
+#define CHANNEL_COUNT 5
+
 volatile uint16_t ADC_VAL[CHANNEL_COUNT];
 static GPIO_PinState backLightState = GPIO_PIN_SET;
 extern ADC_HandleTypeDef hadc3;
@@ -45,10 +48,10 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 	 */
 	  rectifierVoltsRaw = ADC_VAL[0];
-	  Rectifier_AmpsRaw = ADC_VAL[1];
-	  TemperatureRaw = ADC_VAL[2];
-	  PotentiometerRaw = ADC_VAL[3];
-	  SuperCap_VoltsRaw  = ADC_VAL[4];
+//	  Rectifier_AmpsRaw = ADC_VAL[1];
+//	  TemperatureRaw = ADC_VAL[2];
+//	  PotentiometerRaw = ADC_VAL[3];
+//	  SuperCap_VoltsRaw  = ADC_VAL[4];
 	  newData = true;
 
 }
