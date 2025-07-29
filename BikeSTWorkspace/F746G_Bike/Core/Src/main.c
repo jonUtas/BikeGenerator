@@ -923,22 +923,10 @@ void EnableMemoryMappedMode(uint8_t manufacturer_id)
 void StartDefaultTask(void *argument)
 {
   /* USER CODE BEGIN 5 */
-	GPIO_PinState backLightState = GPIO_PIN_SET;
-	HAL_ADC_Start_DMA(&hadc3, (uint32_t *)ADC_VAL, 1);
-  /* Infinite loop */
-  for(;;)
-  {
-    osDelay(10000);
-    HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
-    if(backLightState == GPIO_PIN_SET)
-    {
-    	backLightState = GPIO_PIN_RESET;
-    }
-    else
-    {
-    	backLightState = GPIO_PIN_SET;
-    }
-  }
+	Init_BikeADC_Task();
+	  /* Infinite loop */
+	Run_BikeADC_Task();
+
   /* USER CODE END 5 */
 }
 
