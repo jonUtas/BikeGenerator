@@ -80,8 +80,6 @@ void Error_Handler(void);
 #define PhaseA_GPIO_Port GPIOG
 #define MCU_ACTIVE_Pin GPIO_PIN_6
 #define MCU_ACTIVE_GPIO_Port GPIOG
-#define SuperCapVolts_Pin GPIO_PIN_7
-#define SuperCapVolts_GPIO_Port GPIOF
 #define RectifierAmps_Pin GPIO_PIN_10
 #define RectifierAmps_GPIO_Port GPIOF
 #define Temperature_Pin GPIO_PIN_9

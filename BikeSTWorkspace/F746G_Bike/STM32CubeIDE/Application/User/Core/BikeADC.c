@@ -15,7 +15,6 @@
 #define CHANNEL_COUNT 5
 
 volatile uint16_t ADC_VAL[CHANNEL_COUNT];
-static GPIO_PinState backLightState = GPIO_PIN_SET;
 extern ADC_HandleTypeDef hadc3;
 
 bool newData = false;
@@ -37,6 +36,7 @@ long ADCMap(long x, long in_min, long in_max, long out_min, long out_max)
   return (x - in_min) * (out_max - out_min + 1) / (in_max - in_min + 1) + out_min;
 }
 
+
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
 	/*
@@ -53,29 +53,32 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 //	  PotentiometerRaw = ADC_VAL[3];
 //	  SuperCap_VoltsRaw  = ADC_VAL[4];
 	  newData = true;
-
+	if(hadc->Instance==ADC3)
+	{
+		HAL_ADC_Start_DMA(&hadc3, (uint32_t *)ADC_VAL, CHANNEL_COUNT);
+	}
 }
 
 void Init_BikeADC_Task()
 {
-	backLightState = GPIO_PIN_SET;
-	HAL_ADC_Start_DMA(&hadc3, (uint32_t *)ADC_VAL, 1);
+	HAL_ADC_Start_DMA(&hadc3, (uint32_t *)ADC_VAL, CHANNEL_COUNT);
 }
 
 void Run_BikeADC_Task()
 {
+	GPIO_PinState backLightState = GPIO_PIN_SET;
 	/* Infinite loop */
 	for(;;)
 	{
-//		HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
-//		if(backLightState == GPIO_PIN_SET)
-//		{
-//			backLightState = GPIO_PIN_RESET;
-//		}
-//		else
-//		{
-//			backLightState = GPIO_PIN_SET;
-//		}
+		HAL_GPIO_WritePin(LCD_BL_CTRL_GPIO_Port, LCD_BL_CTRL_Pin, backLightState);
+		if(backLightState == GPIO_PIN_SET)
+		{
+			backLightState = GPIO_PIN_RESET;
+		}
+		else
+		{
+			backLightState = GPIO_PIN_SET;
+		}
 		if(newData)
 		{
 			newData = false;
@@ -85,6 +88,6 @@ void Run_BikeADC_Task()
 //			PotentiometerMapped = ADCMap(PotentiometerRaw, 1700, 65535, 0, 100);
 //			SuperCap_VoltsMapped  = ADCMap(SuperCap_VoltsRaw, 1700, 65535, 0, 100);
 		}
-		osDelay(1);
+		osDelay(1000);
 	}
 }
