@@ -24,7 +24,6 @@
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
-extern DMA_HandleTypeDef hdma_adc3;
 
 /* Private typedef -----------------------------------------------------------*/
 /* USER CODE BEGIN TD */
@@ -109,7 +108,7 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     PF8     ------> ADC3_IN6
     PA0/WKUP     ------> ADC3_IN0
     */
-    GPIO_InitStruct.Pin = GPIO_PIN_7|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin;
+    GPIO_InitStruct.Pin = SuperCap_Pin|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
@@ -118,25 +117,6 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(RectifierVolts_GPIO_Port, &GPIO_InitStruct);
-
-    /* ADC3 DMA Init */
-    /* ADC3 Init */
-    hdma_adc3.Instance = DMA2_Stream0;
-    hdma_adc3.Init.Channel = DMA_CHANNEL_2;
-    hdma_adc3.Init.Direction = DMA_PERIPH_TO_MEMORY;
-    hdma_adc3.Init.PeriphInc = DMA_PINC_DISABLE;
-    hdma_adc3.Init.MemInc = DMA_MINC_ENABLE;
-    hdma_adc3.Init.PeriphDataAlignment = DMA_PDATAALIGN_HALFWORD;
-    hdma_adc3.Init.MemDataAlignment = DMA_MDATAALIGN_HALFWORD;
-    hdma_adc3.Init.Mode = DMA_CIRCULAR;
-    hdma_adc3.Init.Priority = DMA_PRIORITY_LOW;
-    hdma_adc3.Init.FIFOMode = DMA_FIFOMODE_DISABLE;
-    if (HAL_DMA_Init(&hdma_adc3) != HAL_OK)
-    {
-      Error_Handler();
-    }
-
-    __HAL_LINKDMA(hadc,DMA_Handle,hdma_adc3);
 
     /* ADC3 interrupt Init */
     HAL_NVIC_SetPriority(ADC_IRQn, 5, 0);
@@ -172,12 +152,9 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     PF8     ------> ADC3_IN6
     PA0/WKUP     ------> ADC3_IN0
     */
-    HAL_GPIO_DeInit(GPIOF, GPIO_PIN_7|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin);
+    HAL_GPIO_DeInit(GPIOF, SuperCap_Pin|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin);
 
     HAL_GPIO_DeInit(RectifierVolts_GPIO_Port, RectifierVolts_Pin);
-
-    /* ADC3 DMA DeInit */
-    HAL_DMA_DeInit(hadc->DMA_Handle);
 
     /* ADC3 interrupt DeInit */
     HAL_NVIC_DisableIRQ(ADC_IRQn);
@@ -249,7 +226,7 @@ void HAL_DMA2D_MspInit(DMA2D_HandleTypeDef* hdma2d)
     /* Peripheral clock enable */
     __HAL_RCC_DMA2D_CLK_ENABLE();
     /* DMA2D interrupt Init */
-    HAL_NVIC_SetPriority(DMA2D_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(DMA2D_IRQn, 6, 0);
     HAL_NVIC_EnableIRQ(DMA2D_IRQn);
     /* USER CODE BEGIN DMA2D_MspInit 1 */
 
@@ -470,7 +447,7 @@ void HAL_LTDC_MspInit(LTDC_HandleTypeDef* hltdc)
     HAL_GPIO_Init(GPIOI, &GPIO_InitStruct);
 
     /* LTDC interrupt Init */
-    HAL_NVIC_SetPriority(LTDC_IRQn, 5, 0);
+    HAL_NVIC_SetPriority(LTDC_IRQn, 6, 0);
     HAL_NVIC_EnableIRQ(LTDC_IRQn);
     /* USER CODE BEGIN LTDC_MspInit 1 */
 
