@@ -3,6 +3,7 @@
     "Screens": [
       {
         "Name": "Screen1",
+        "CanvasBufferSize": 7200,
         "Components": [
           {
             "Type": "Image",
@@ -21,9 +22,87 @@
             "Pressed": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_on_normal.png",
             "Released": "__generated\\alternate_theme_images_widgets_togglebutton_medium_rounded_off_light.png",
             "Preset": "alternate_theme\\presets\\togglebutton\\medium\\rounded.json"
+          },
+          {
+            "Type": "Gauge",
+            "Name": "gauge1",
+            "X": 13,
+            "Y": 543,
+            "Width": 240,
+            "Height": 241,
+            "Preset": "alternate_theme\\presets\\gauges\\medium\\active.json",
+            "FileNameBackground": "__generated\\alternate_theme_images_widgets_gauge_medium_backgrounds_active.png",
+            "RotationCenterX": 120.0,
+            "RotationCenterY": 120.0,
+            "StartAngle": -113.0,
+            "EndAngle": 112.0,
+            "RangeMax": 100.0,
+            "InitialValue": 50.0,
+            "Easing": "Linear",
+            "EasingOption": "In",
+            "FileNameNeedle": "__generated\\alternate_theme_images_widgets_gauge_medium_needles_smooth.png",
+            "NeedleRotationCenterX": 7.0,
+            "NeedleRotationCenterY": 67.0,
+            "NeedleMovingRenderingAlgorithm": "Bilinear Interpolation",
+            "NeedleSteadyRenderingAlgorithm": "Bilinear Interpolation",
+            "ArcColor": {
+              "Red": 20,
+              "Green": 151,
+              "Blue": 197
+            },
+            "ArcCapStyle": "Butt"
+          },
+          {
+            "Type": "DynamicGraph",
+            "Name": "dynamicGraph1",
+            "X": 151,
+            "Y": 280,
+            "Width": 320,
+            "Height": 240,
+            "DataSeed": -143743168,
+            "NumberOfValues": 100,
+            "MaxY": 100.0,
+            "Precision": "1",
+            "LastIndex": 99,
+            "XAxisScale": 1.0,
+            "InsertRandomValues": true,
+            "GraphType": "GraphWrapClear",
+            "GraphDrawers": [
+              {
+                "Type": "LineDrawer",
+                "LineWidth": 2,
+                "FileNameImage": "",
+                "Color": {
+                  "Red": 20,
+                  "Green": 151,
+                  "Blue": 197
+                }
+              }
+            ]
           }
         ],
-        "Interactions": []
+        "Interactions": [
+          {
+            "InteractionName": "Interaction1",
+            "Trigger": {
+              "Type": "TriggerNone"
+            },
+            "Action": {
+              "Type": "ActionNone"
+            }
+          },
+          {
+            "InteractionName": "ButtonClickInter",
+            "Trigger": {
+              "Type": "TriggerClicked",
+              "TriggerComponent": "toggleButton1"
+            },
+            "Action": {
+              "Type": "ActionCustom",
+              "FunctionName": "ButtonClick"
+            }
+          }
+        ]
       }
     ],
     "CustomContainerDefinitions": [],

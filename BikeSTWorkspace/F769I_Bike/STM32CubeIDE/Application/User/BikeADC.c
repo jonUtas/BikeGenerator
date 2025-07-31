@@ -10,6 +10,7 @@
 #include <cmsis_os2.h>
 #include <stdbool.h>
 #include "BikeADC.h"
+#include "globals.h"
 
 	/*
 		PA6		A0		ADC1	IN6		Rectifier volts
@@ -58,7 +59,6 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 
 void StartADC(ADC_HandleTypeDef *hadcPtr, int32_t channel)
 {
-
 	adcConfig.Channel = channel;
 	if (HAL_ADC_ConfigChannel(hadcPtr, &adcConfig) != HAL_OK)
 	{
@@ -70,12 +70,14 @@ void StartADC(ADC_HandleTypeDef *hadcPtr, int32_t channel)
 
 void Init_BikeADC_Task()
 {
+	globalCount = 0;
 	adcIndex = 0;
 	adcConfig.Channel = ADC_CHANNEL_0;
 	adcConfig.Rank = ADC_REGULAR_RANK_1;
 	adcConfig.SamplingTime = ADC_SAMPLETIME_15CYCLES;
 //	HAL_ADCEx_Calibration_Start(&hadc1);
 	StartADC(&hadc1, 6);
+
 }
 
 void Run_BikeADC_Task()
