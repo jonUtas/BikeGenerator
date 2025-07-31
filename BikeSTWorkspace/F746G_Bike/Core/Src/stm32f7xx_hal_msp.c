@@ -113,10 +113,10 @@ void HAL_ADC_MspInit(ADC_HandleTypeDef* hadc)
     GPIO_InitStruct.Pull = GPIO_NOPULL;
     HAL_GPIO_Init(GPIOF, &GPIO_InitStruct);
 
-    GPIO_InitStruct.Pin = RectifierVolts_Pin;
+    GPIO_InitStruct.Pin = GPIO_PIN_0;
     GPIO_InitStruct.Mode = GPIO_MODE_ANALOG;
     GPIO_InitStruct.Pull = GPIO_NOPULL;
-    HAL_GPIO_Init(RectifierVolts_GPIO_Port, &GPIO_InitStruct);
+    HAL_GPIO_Init(GPIOA, &GPIO_InitStruct);
 
     /* ADC3 interrupt Init */
     HAL_NVIC_SetPriority(ADC_IRQn, 5, 0);
@@ -154,7 +154,7 @@ void HAL_ADC_MspDeInit(ADC_HandleTypeDef* hadc)
     */
     HAL_GPIO_DeInit(GPIOF, SuperCap_Pin|RectifierAmps_Pin|Temperature_Pin|Potentiometer_Pin);
 
-    HAL_GPIO_DeInit(RectifierVolts_GPIO_Port, RectifierVolts_Pin);
+    HAL_GPIO_DeInit(GPIOA, GPIO_PIN_0);
 
     /* ADC3 interrupt DeInit */
     HAL_NVIC_DisableIRQ(ADC_IRQn);

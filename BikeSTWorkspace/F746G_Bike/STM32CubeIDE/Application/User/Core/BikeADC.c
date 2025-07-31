@@ -53,9 +53,8 @@ void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
 
 	  newData = true;
-
-
 }
+
 void StartADC(int32_t channel)
 {
 //	HAL_ADCEx_Calibration_Start(&hadc1);

@@ -88,8 +88,6 @@ void Error_Handler(void);
 #define Temperature_GPIO_Port GPIOF
 #define Potentiometer_Pin GPIO_PIN_8
 #define Potentiometer_GPIO_Port GPIOF
-#define RectifierVolts_Pin GPIO_PIN_0
-#define RectifierVolts_GPIO_Port GPIOA
 #define PhaseC_Pin GPIO_PIN_6
 #define PhaseC_GPIO_Port GPIOH
 #define LED_Serial_Pin GPIO_PIN_15
