@@ -64,3 +64,5 @@ or 2085-SCAP,PBLS-1.25/21.6-ND
 via 
 recom R-785.0-1.0 945-1038-ND
 
+
+dev board: STM32F769I-Disco

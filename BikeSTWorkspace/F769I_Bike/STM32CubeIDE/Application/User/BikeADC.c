@@ -23,8 +23,8 @@ extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc3;
 
 #define CHANNEL_COUNT 5
-int ADC_Channel[] = {  6,  4,  12, 8,  6};
-ADC_HandleTypeDef *ADC_Peripheral[] = {  &hadc1, &hadc1, &hadc1, &hadc3, &hadc3};
+int ADC_Channel[] = {  6,  4,  12, 8,  6};// from table above
+ADC_HandleTypeDef *ADC_Peripheral[] = {  &hadc1, &hadc1, &hadc1, &hadc3, &hadc3};// from table above
 int adcIndex = 0;
 
 volatile bool newData = false;
@@ -53,7 +53,6 @@ long ADCMap(long x, long in_min, long in_max, long out_min, long out_max)
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
-
 	  newData = true;
 }
 
