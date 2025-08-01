@@ -12,6 +12,8 @@ public:
     virtual void setupScreen();
     virtual void tearDownScreen();
     virtual void ButtonClick();
+    void setLight (bool state);
+    void setADC (int val);
 
 protected:
 };

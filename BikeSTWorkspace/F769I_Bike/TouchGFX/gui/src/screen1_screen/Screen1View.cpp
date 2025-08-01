@@ -26,6 +26,16 @@ void Screen1View::ButtonClick()
 {
 	test = !test;
 	globalCount++;
-	gauge1.setValue(globalCount);
+
 }
 
+void Screen1View::setLight (bool state)
+{
+
+}
+
+void Screen1View::setADC (int val)
+{
+	gauge1.setValue(val);
+	gauge1.invalidate();
+}

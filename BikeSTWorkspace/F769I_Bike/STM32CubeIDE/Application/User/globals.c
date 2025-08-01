@@ -10,3 +10,9 @@
 
 bool test;
 int globalCount;
+//struct ADCState CurrentState;
+
+//xQueueHandle xQueueADC;
+
+
+

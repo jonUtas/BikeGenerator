@@ -22,8 +22,9 @@
 
 extern ADC_HandleTypeDef hadc1;
 extern ADC_HandleTypeDef hadc3;
+extern osMessageQueueId_t adcQueueHandle;
 
-#define CHANNEL_COUNT 5
+#define CHANNEL_COUNT (5)
 int ADC_Channel[] = {  6,  4,  12, 8,  6};// from table above
 ADC_HandleTypeDef *ADC_Peripheral[] = {  &hadc1, &hadc1, &hadc1, &hadc3, &hadc3};// from table above
 int adcIndex = 0;
@@ -32,25 +33,25 @@ volatile bool newData = false;
 
 ADC_ChannelConfTypeDef adcConfig = {0};
 
-uint16_t RectifierVoltsRaw = 0;
-uint16_t RectifierAmpsRaw = 0;
-uint16_t TemperatureRaw = 0;
-uint16_t PotentiometerRaw = 0;
-uint16_t SuperCap_VoltsRaw  = 0;
+uint16_t RectifierVolts = 0;
+uint16_t RectifierAmps = 0;
+uint16_t Temperature = 0;
+uint16_t Potentiometer = 0;
+uint16_t SuperCapVolts  = 0;
 
 
-int RectifierVoltsMapped = 0;
-int RectifierAmpsMapped = 0;
-int TemperatureMapped = 0;
-int PotentiometerMapped = 0;
-int SuperCapVoltsMapped  = 0;
+//long ADCMap(long x, long in_min, long in_max, long out_min, long out_max)
+//{
+//  return (x - in_min) * (out_max - out_min + 1) / (in_max - in_min + 1) + out_min;
+//}
 
-
-long ADCMap(long x, long in_min, long in_max, long out_min, long out_max)
+uint16_t ADCMapUnsigned(uint16_t value, uint16_t out_min, uint16_t out_max)
 {
-  return (x - in_min) * (out_max - out_min + 1) / (in_max - in_min + 1) + out_min;
+	#define MAX_12_BIT (4095)
+	uint32_t range = out_max - out_min;
+	uint32_t result = range * value / MAX_12_BIT + out_min;
+	return (uint16_t)result;
 }
-
 
 void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc)
 {
@@ -101,11 +102,15 @@ void Run_BikeADC_Task()
 			uint32_t rawADC = HAL_ADC_GetValue(ADC_Peripheral[adcIndex]);
 			switch(adcIndex)
 			{
-				case 0: {RectifierVoltsRaw = rawADC;} break;
-				case 1: {RectifierAmpsRaw = rawADC;} break;
-				case 2: {TemperatureRaw = rawADC;} break;
-				case 3: {PotentiometerRaw = rawADC;} break;
-				case 4: {SuperCap_VoltsRaw = rawADC;} break;
+				case 0: {RectifierVolts = rawADC;} break;
+				case 1: {RectifierAmps = rawADC;} break;
+				case 2: {Temperature = rawADC;} break;
+				case 3: {Potentiometer = rawADC;} break;
+				case 4: {
+					uint16_t SuperCap_VoltsRaw = rawADC;
+					SuperCapVolts  = ADCMapUnsigned(SuperCap_VoltsRaw, 0, 100);
+					osMessageQueuePut(adcQueueHandle, &SuperCapVolts, 0, 0);
+				} break;
 				default: Error_Handler();
 
 			}
@@ -115,15 +120,15 @@ void Run_BikeADC_Task()
 //			Rectifier_AmpsMapped = ADCMap(RectifierAmpsRaw, 1700, 65535, 0, 100);
 //			TemperatureMapped = ADCMap(TemperatureRaw, 1700, 65535, 0, 100);
 //			PotentiometerMapped = ADCMap(PotentiometerRaw, 1700, 65535, 0, 100);
-//			SuperCap_VoltsMapped  = ADCMap(SuperCap_VoltsRaw, 1700, 65535, 0, 100);
+//
 			adcIndex++;
 			if(adcIndex >= CHANNEL_COUNT )
 			{
 				adcIndex = 0;
 			}
-			StartADC(ADC_Peripheral[adcIndex], adcIndex);
+			StartADC(ADC_Peripheral[adcIndex], ADC_Channel[adcIndex]);
 
 		}
-		osDelay(1000);
+		osDelay(100);
 	}
 }

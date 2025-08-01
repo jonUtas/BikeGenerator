@@ -16,3 +16,13 @@ void Screen1Presenter::deactivate()
 {
 
 }
+
+void Screen1Presenter::setLight (bool state)
+{
+	view.setLight(state);
+}
+
+void Screen1Presenter::setADC (int val)
+{
+	view.setADC(val);
+}
